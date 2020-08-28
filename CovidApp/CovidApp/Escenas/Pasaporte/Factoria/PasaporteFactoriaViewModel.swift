@@ -68,7 +68,7 @@ extension FactoriaPasaporteViewModel {
                      primerEmoji: "☀︎",
                      segundoEmoji: "☂︎",
                      tercerEmoji: "⚠︎",
-                     mensaje: "El certificado es válido sólo si coincide el token de seguridad entre telefonoes")
+                     mensaje: "El certificado es válido solo si coincide el token de seguridad entre teléfonos")
     }
 }
 

@@ -144,7 +144,7 @@ private extension FactoriaPasaporteViewModel {
             
             crearResultadoToken(resultado: "Autodiagnóstico", estado: "Sin síntomas", periodo: "Vence \(tiempoFormateado)", color: .verde, informacion: "MÁS INFORMACIÓN", informacionColor: .azulCyan, token: tokenDinamico, qrString: nil),
 
-            BotonCeldaViewModel(titulo: .crearBotonBlanco(titulo: "HACER OTRO AUTODIAGNOSTICO"), identificador: .autodiagnostico)
+            BotonCeldaViewModel(titulo: .crearBotonBlanco(titulo: "HACER OTRO AUTODIAGNÓSTICO"), identificador: .autodiagnostico)
         ]
     }
     
@@ -156,7 +156,7 @@ private extension FactoriaPasaporteViewModel {
                             
             crearResultadoToken(resultado: "Autodiagnóstico", estado: "Sin síntomas", periodo: "Vence \(tiempoFormateado)", color: .azul, informacion: "MÁS INFORMACIÓN", informacionColor: .azulCyan, token: tokenDinamico, qrString: nil),
             
-            BotonCeldaViewModel(titulo: .crearBotonBlanco(titulo: "HACER OTRO AUTODIAGNOSTICO"), identificador: .autodiagnostico),
+            BotonCeldaViewModel(titulo: .crearBotonBlanco(titulo: "HACER OTRO AUTODIAGNÓSTICO"), identificador: .autodiagnostico),
             crearCertificadoEstado(estado: "No disponible", color: .azul),
             BotonCeldaViewModel(titulo: .crearBotonAzul(titulo: "AGREGAR"), identificador: .habilitarCirculacion)
         ]
@@ -202,7 +202,7 @@ private extension FactoriaPasaporteViewModel {
                                                           estatus: "QUEDATE EN CASA",
                                                           descripcion: "Recordá que solo podés salir de tu casa para realizar compras en comercios de cercanía. Para realizar actividades exceptuadas de la cuarentena requerís un certificado.".uppercased(),
                                                           colores: (color1: .azulPrimario, color2: .azulSecundario)),
-                BotonCeldaViewModel(titulo: .crearBotonBlanco(titulo: "HABILITAR LA CIRCULACION"),
+                BotonCeldaViewModel(titulo: .crearBotonBlanco(titulo: "HABILITAR LA CIRCULACIÓN"),
                                     identificador: .habilitarCirculacion),
                 crearTokenDinamivoViewModel(tokenDinamico: tokenDinamico)
         ]
@@ -254,7 +254,7 @@ private extension FactoriaPasaporteViewModel {
         let qrImagen = qrString != nil ? crearQR(enunciadoBase64: qrString) : nil
         return .init(borderColor: .grisBorde,
                      tituloBorderColor: .white,
-                     mensaje: .init(texto: "Esta credencial es válida sólo si coincide el token de seguridad entre teléfonos",
+                     mensaje: .init(texto: "Esta credencial es válida solo si coincide el token de seguridad entre teléfonos",
                                     apariencia: .init(fuente: .robotoRegular(tamaño: 14),
                                                       colorTexto: .negroSecundario)),
                      primerEmoji: tokenDinamico?.token,
@@ -266,7 +266,7 @@ private extension FactoriaPasaporteViewModel {
     func crearTokenDinamivoViewModel(tokenDinamico: TokenDinamico?) -> PasaporteTokenDinamicoViewModel {
         return .init(borderColor: .grisBorde,
                      tituloBorderColor: .white,
-                     mensaje: .init(texto: "Esta credencial es válida sólo si coincide el token de seguridad entre teléfonos",
+                     mensaje: .init(texto: "Esta credencial es válida solo si coincide el token de seguridad entre teléfonos",
                      apariencia: .init(fuente: .robotoRegular(tamaño: 14),
                                        colorTexto: .negroSecundario)),
                      primerEmoji: tokenDinamico?.token,

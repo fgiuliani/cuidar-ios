@@ -1,6 +1,6 @@
 # Cuidar iOS
 
-Se publica aquí el código fuente de la versión iOS de la aplicación Cuidar. Este código fuente es el *trabajo en curso* hacia la versión 3.5.4. En el `Changelog.txt` se puede ver el historial de cambios y las novedades que contendrá esta versión.
+Se publica aquí el código fuente de la versión iOS de la aplicación Cuidar. Este código fuente es el *trabajo en curso* hacia la versión 3.5.6. En el `Changelog.txt` se puede ver el historial de cambios y las novedades que contendrá esta versión.
 
 Esta aplicación es el método elegido por millones de ciudadanos y ciudadanas de Argentina para mostrar sus certificados de circulación en el contexto de la pandemia de COVID-19, así como también para hacerse autodiagnósticos que les permitan saber si deben consultar al sistema de salud y ser derivados al Comité Operativo de Emergencia Provincial de su jurisdicción.
 
@@ -45,39 +45,19 @@ Más allá de las mejoras funcionales que se incorporen por requerimiento de las
 * Versión mínima de iOS: 11
 * Última versión de iOS durante el desarrollo del proyecto: 13.4
 * Versión mínima de Xcode: 11.3.1 (11C504)
-* La aplicación usa [Carthage](https://github.com/Carthage/Carthage) y [Swift Package Manager](https://swift.org/package-manager/) como sistema de manejo de dependencias. Se usan ambos ya que algunos frameworks no soportan Carthage. Para compilar el proyecto necesitás:
+* La aplicación usa [Swift Package Manager](https://swift.org/package-manager/) como sistema de manejo de dependencias.
+
+* Para compilar el proyecto necesitás:
 
 ### NewRelic 
 
-* Agregarle el paquete de NewRelic (en ese caso poner en `true` la variable `USAR_NEWRELIC` en `CovidApp/CovidApp/Dominio/Constantes/GlobalKeys.swift`) o eliminarlo del proyecto (Project Settings ▸ Build Phases ▸ eliminar New Relic, Build Settings ▸ Swift Compiler ▸ General ▸ Objective-C Bridging Header ▸ vaciarlo y eliminar -DNEWRELIC de Other Swift Flags).
+* Agregarle el paquete de NewRelic (en ese caso poner en `true` la variable `USAR_NEWRELIC` en `CovidApp/CovidApp/Dominio/Constantes/GlobalKeys.swift`) o eliminarlo del proyecto (en Project Settings ▸ Build Phases ▸ eliminar New Relic de Link Binary With Libraries y de su propia sección, en Build Settings ▸ Swift Compiler ▸ General ▸ Objective-C Bridging Header ▸ vaciarlo y eliminar -DNEWRELIC de Other Swift Flags).
 * Tal vez necesites Project ▸ Clean Build Folder.
 
 ### Swift Package Manager
 * Swift-tools-version: 5.1
 * Para descargar y actualizar la última versión de los paquetes en la toolbar seguí estos pasos:
 File ▸ Swift Packages ▸ Update to Latest Package Versions. Esto actualizará y descargará los paquetes de los frameworks.
-
-### Carthage
-* Version mínima: 0.34.0
-* Corré el siguiente comando en la terminal dentro de `CovidApp`: `carthage update --platform iOS`
-
-Este comando clonará los repositorios especificados en el Cartfile y compilará cada dependencia generarando los frameworks. La opción `--platform iOS` asegura que los frameworks sean compilados únicamente para iOS. Si no especificás esa opción Carthage por defecto compilará para todas las plataformas que sorporten los frameworks (por ejemplo, iOS, Mac, etc.).
-
-Carthage genera el siguiente árbol de directorios:
-
-       Project Directory
-       |-- Cartfile.resolved
-       |-- Carthage
-               |-- Build
-               |-- Checkouts
-        
-`Carthage.resolved`: Este archivo define exactamente cuáles versiones fueron usadas para resolver las dependencias del proyecto.
-
-`Carthage`: Contiene 2 subdirectorios. `Build` contiene los frameworks compilados para cada dependencia.
-
-`Checkouts`: El código fuente de las dependencias que Carthage usó para compilar las dependencias y generar los frameworks.
-
-Nota: El comando `carthage bootstrap` descarga y genera los frameworks para las versiones especificadass en el archivo `Cartfile.resolved`.
 
 ## Arquitectura
 
